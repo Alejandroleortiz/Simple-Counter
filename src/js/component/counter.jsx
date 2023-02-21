@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom'
 import Digits from "./digits";
 import Icondigit from "./icon-digit";
-
+import propTypes from "prop-types";
 
 const Counter = (props) => {
 	return (
@@ -23,27 +23,32 @@ const Counter = (props) => {
 };
 
 Counter.propsTypes ={
-digitSix: Prototypes.number, 
-digitFive: Prototypes.number, 
-digitFour: Prototypes.number, 
-digitThree: Prototypes.number, 
-digitTwo: Prototypes.number, 
-digitOne: Prototypes.number, 
+digitSix: propTypes.number, 
+digitFive: propTypes.number, 
+digitFour: propTypes.number, 
+digitThree: propTypes.number, 
+digitTwo: propTypes.number, 
+digitOne: propTypes.number, 
 }
 
 let counter = 0;
 
 setInterval(function () {
-const six = Math.floor(counter/1000000);
-const five = Math.floor(counter/100000);
-const four = Math.floor(counter/10000);
-const three = Math.floor(counter/1000);
-const two = Math.floor(counter/100);
-const one = Math.floor(counter/10);
-console.log(one, two, three, four, five, one);
-	
-},1000)
+const six = Math.floor(counter/100000);
+const five = Math.floor(counter/10000);
+const four = Math.floor(counter/1000);
+const three = Math.floor(counter/100);
+const two = Math.floor(counter/10);
+const one = Math.floor(counter/1);
+console.log(one, two, three, four, five, six);
+
+counter ++;
+
 ReactDOM.render(
-	<Counter digiOne={counter.indexOf()}/>,
+	<Counter digitOne={one} digitTwo={two} digitThree={three} digitFour={four} digitFive={five} digitSix={six}/>,
 	document.querySelector('#app'));
+
+},1000)
+
 export default Counter;
+
