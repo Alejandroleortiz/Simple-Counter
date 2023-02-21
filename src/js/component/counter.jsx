@@ -18,6 +18,17 @@ const Counter = (props) => {
 					<Digits className="one">{props.digitOne}</Digits>
 				</span>
 			</div>
+			<div className="row my-5 justify-content-center">
+			<div className="col-md-1">
+			<button ><span>Reset</span></button>
+			</div>
+			<div className="col-md-1">
+			<button><span>Stop</span></button>
+			</div>
+			<div className="col-md-1">
+			<button><span>Start</span></button>
+			</div>
+			</div>
 		</>
 	);
 };
