@@ -7,7 +7,7 @@ import propTypes from "prop-types";
 const Counter = (props) => {
 	return (
 		<>
-			<div className="d-flex justify-content-center bg-dark">
+			<div className="d-flex justify-content-center bg-black">
 				<span className="container row">
 					<Icondigit />
 					<Digits className="six">{props.digitSix}</Digits>
@@ -20,10 +20,10 @@ const Counter = (props) => {
 			</div>
 			<div className="row my-5 justify-content-center">
 			<div className="col-md-1">
-			<button ><span>Reset</span></button>
+			<button onClick={resetCounter} ><span>Reset</span></button>
 			</div>
 			<div className="col-md-1">
-			<button><span>Stop</span></button>
+			<button onClick={stopCounter}><span>Stop</span></button>
 			</div>
 			<div className="col-md-1">
 			<button><span>Start</span></button>
@@ -45,7 +45,7 @@ digitOne: propTypes.number,
 let counter = 0;
 
 setInterval(function () {
-const six = Math.floor(counter/100000)%10; // cada variable esta delimitada hasa 9 segun su posicion
+const six = Math.floor(counter/100000)%10; // cada variable esta delimitada hasta 9 segun su posicion
 const five = Math.floor(counter/10000)%10;
 const four = Math.floor(counter/1000)%10;
 const three = Math.floor(counter/100)%10;
@@ -59,6 +59,16 @@ ReactDOM.render(
 	document.querySelector('#app'));
 
 },1000) // Ejecuta cada 10 segundos 
+
+function resetCounter() {
+    // resetea el contador a cero se agrega la function a usando onClick
+    counter = 0;
+}
+
+function stopCounter () {
+	clearInterval(setInterval(counter));
+}
+
 
 export default Counter;
 
