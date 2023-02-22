@@ -26,7 +26,7 @@ const Counter = (props) => {
 			<button onClick={stopCounter}><span>Stop</span></button>
 			</div>
 			<div className="col-md-1">
-			<button><span>Start</span></button>
+			<button onClick={startCounter}><span>Start</span></button>
 			</div>
 			</div>
 		</>
@@ -42,9 +42,11 @@ digitTwo: propTypes.number,
 digitOne: propTypes.number, 
 }
 
+
 let counter = 0;
 
-setInterval(function () {
+
+const intervalId = setInterval(function () {
 const six = Math.floor(counter/100000)%10; // cada variable esta delimitada hasta 9 segun su posicion
 const five = Math.floor(counter/10000)%10;
 const four = Math.floor(counter/1000)%10;
@@ -66,9 +68,13 @@ function resetCounter() {
 }
 
 function stopCounter () {
-	clearInterval(setInterval(counter));
+	clearInterval(intervalId); // Function para detener el contador, utilizando una constante que interviene sobre el setInterval()
 }
 
+function startCounter ()
+{
+	intervalId();
+}
 
 export default Counter;
 
