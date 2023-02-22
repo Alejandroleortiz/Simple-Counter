@@ -71,7 +71,7 @@ function stopCounter () {
 	clearInterval(intervalId); // Function para detener el contador, utilizando una constante que interviene sobre el setInterval()
 }
 
-function startCounter ()
+function startCounter () // Asignar nuevamente la funcion para reiniciar el contador
 {
 	intervalId = setInterval(function () {
 		const six = Math.floor(counter/100000)%10; // cada variable esta delimitada hasta 9 segun su posicion
